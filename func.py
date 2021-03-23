@@ -66,7 +66,7 @@ def move_object(signer, namespace, source_bucket, destination_bucket, object_nam
         oci.object_storage.models.CopyObjectDetails(
             destination_bucket=destination_bucket, 
             destination_namespace=namespace,
-            destination_object_name=object_name,
+            destination_object_name=str(tm) + object_name,
             destination_region=signer.region,
             source_object_name=object_name
             ),
