@@ -58,7 +58,7 @@ def load_data(signer, namespace, bucket_name, object_name, ordsbaseurl, schema, 
     print("INFO - All documents are successfully loaded into the database", flush=True)
 
 
-def move_object(signer, namespace, source_bucket, destination_bucket, error_bucket, object_name):
+def move_object(signer, namespace, source_bucket, destination_bucket, object_name):
     objstore = oci.object_storage.ObjectStorageClient(config={}, signer=signer)
     objstore_composite_ops = oci.object_storage.ObjectStorageClientCompositeOperations(objstore)
     resp = objstore_composite_ops.copy_object_and_wait_for_state(
@@ -111,7 +111,7 @@ def handler(ctx, data: io.BytesIO=None):
         print('ERROR: bad Event!', flush=True)
         raise
     load_data(signer, namespace, input_bucket, object_name, ordsbaseurl, schema, dbuser, dbpwd)
-    move_object(signer, namespace, input_bucket, processed_bucket, error_bucket, object_name)
+    move_object(signer, namespace, input_bucket, processed_bucket, object_name)
 
     return response.Response(
         ctx, 
