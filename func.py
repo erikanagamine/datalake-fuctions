@@ -13,6 +13,8 @@ import requests
 
 from fdk import response
 
+tm = time.strftime('%a_%d_%b_%Y_%H:%M:%S_%Z(%z)')
+
 
 def soda_insert(ordsbaseurl, schema, dbuser, dbpwd, document):
     auth=(dbuser, dbpwd)
