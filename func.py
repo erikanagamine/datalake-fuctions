@@ -75,7 +75,7 @@ def move_object(signer, namespace, source_bucket, destination_bucket, error_buck
             oci.object_storage.models.WorkRequest.STATUS_COMPLETED,
             oci.object_storage.models.WorkRequest.STATUS_FAILED])
     if resp.data.status != "COMPLETED":
-        resp = objstore.copy_object(namespace, error_bucket, object_name)
+ #       resp = objstore.copy_object(namespace, error_bucket, object_name)
         raise Exception("cannot copy object {0} to bucket {1}".format(object_name,destination_bucket))
     else:
         resp = objstore.delete_object(namespace, source_bucket, str(tm) + object_name)
