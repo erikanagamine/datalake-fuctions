@@ -93,6 +93,7 @@ def handler(ctx, data: io.BytesIO=None):
         schema = cfg["dbschema"]
         dbuser = cfg["dbuser"]
         dbpwd = cfg["dbpwd"]
+        error_bucket = cfg["error_bucket"]
     except Exception as e:
         print('Missing function parameters: bucket_name, ordsbaseurl, schema, dbuser, dbpwd', flush=True)
         raise
