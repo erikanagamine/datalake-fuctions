@@ -14,7 +14,8 @@ import time
 
 from fdk import response
 
-tm = time.strftime('%a_%d_%b_%Y_%H:%M:%S_%Z(%z)')
+#tm = time.strftime('%a_%d_%b_%Y_%H:%M:%S_%Z(%z)')
+tm = time.strftime('%Y%m%d_%H:%M:%S-')
 
 
 def soda_insert(ordsbaseurl, schema, dbuser, dbpwd, document):
